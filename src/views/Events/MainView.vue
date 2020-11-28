@@ -104,11 +104,11 @@ export default {
   created() {
     this.show = true;
   }
-  // methods:{
-  //     show(){
-  // console.log(this.$route);
-  //     }
-  // }
+  methods:{
+      show(){
+  console.log(this.$route);
+      }
+  }
 };
 </script>
 
