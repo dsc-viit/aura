@@ -6,7 +6,7 @@
         <p
           class="google-font mt-0"
           style="font-size:95%"
-        >Developer Student Clubs are university based community groups for students interested in Google developer technologies.students grow their knowledge in a peer-to-peer learning environment and build solutions for local businesses and their community.</p>
+        >Developer Student Clubs are university based community groups for students interested in Google developer technologies.</p>
         <p class="google-font" style="font-size:95%">About different Google technologies</p>
         <span v-for="(item,i) in whatwedodata" :key="i">
           <v-tooltip bottom>

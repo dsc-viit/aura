@@ -1,7 +1,8 @@
 
 <template>
-    <v-container fluid>
-        <v-snackbar v-model="errorAlert" bottom left>
+  <v-container fluid>
+    
+    <!-- <v-snackbar v-model="errorAlert" bottom left>
             {{ errorMsg }}
             <v-btn color="pink" text @click="errorAlert = false">Close</v-btn>
         </v-snackbar>
@@ -46,57 +47,59 @@
                     </template>
                 </v-data-table>
             </v-col>
-        </v-row>
-    </v-container>
+        </v-row> -->
+  </v-container>
 </template>
 
 <script>
-import service from '@/services/appservices'
-import { mapState } from 'vuex'
-    export default {
-        name: 'App',
-        components:{
-        },
-        computed:{
-            ...mapState(["config"])
-        },
-        data: () => ({
-            eventsData:[],
-            showData: false,
-            isLoading: true,
-            search:'',
-            notFoundUpcomingEventFlag: false,
-            errorAlert: false,
-            errorMsg: '',
-            headers: [
-                {
-                    text: 'Event Name',
-                    align: 'start',
-                    value: 'name',
-                },
-                { text: 'Date', value: 'local_date' },
-                { text: 'See More', value: 'link' },
-            ],
-        }),
-        mounted(){
-            this.getAllMeetupPastEvents()
-        },
-        methods:{
-            getAllMeetupPastEvents(){
-                this.isLoading = true
-                service.getAllMeetupPastEvents(this.config.keysandsecurity.meetup).then(res=>{
-                    if(res.success){
-                        this.eventsData = res.data
-                        this.isLoading = false
-                    }else{
-                        this.isLoading = false
-                    }
-                }).catch(e=>{
-                    this.errorMsg = "Issue found with " + e;
-                    this.isLoading = false
-                    this.errorAlert = true;
-                })
-            }
-        }
-    };
+import service from "@/services/appservices";
+import { mapState } from "vuex";
+export default {
+  name: "App",
+  components: {},
+  computed: {
+    ...mapState(["config"]),
+  },
+  data: () => ({
+    eventsData: [],
+    showData: false,
+    isLoading: true,
+    search: "",
+    notFoundUpcomingEventFlag: false,
+    errorAlert: false,
+    errorMsg: "",
+    headers: [
+      {
+        text: "Event Name",
+        align: "start",
+        value: "name",
+      },
+      { text: "Date", value: "local_date" },
+      { text: "See More", value: "link" },
+    ],
+  }),
+  mounted() {
+    this.getAllMeetupPastEvents();
+  },
+  methods: {
+    getAllMeetupPastEvents() {
+      this.isLoading = true;
+      service
+        .getAllMeetupPastEvents(this.config.keysandsecurity.meetup)
+        .then((res) => {
+          if (res.success) {
+            this.eventsData = res.data;
+            this.isLoading = false;
+          } else {
+            this.isLoading = false;
+          }
+        })
+        .catch((e) => {
+          this.errorMsg = "Issue found with " + e;
+          this.isLoading = false;
+          this.errorAlert = true;
+        });
+    },
+  },
+};
 </script>

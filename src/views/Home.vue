@@ -25,13 +25,13 @@
       </v-row>
     </v-container>
 
-     <v-container fluid class="pa-0 py-2" v-if="checkExistance(config.keysandsecurity.meetup,0)">
+     <!-- <v-container fluid class="pa-0 py-2" v-if="checkExistance(config.keysandsecurity.meetup,0)">
       <v-row justify="center" align="center">
         <v-col md="12" sm="11" lg="10" xs="12" class="py-0">
           <events />
         </v-col>
       </v-row>
-    </v-container>
+    </v-container> -->
 
     <v-container fluid class="pa-0 py-0" v-if="showFeatureEventStatus">
       <v-row justify="center" align="center" class="py-5" :class="this.$vuetify.theme.dark == true?'grey darken-4':'grey lighten-4'">
@@ -70,9 +70,9 @@ export default {
     HomeStartScreen:()=>import('@/components/home/HomeStartScreen'),
     whatwedo:()=>import('@/components/home/WhatWeDo'),
     AboutCommunity:()=>import('@/components/home/AboutCommunity'),
-    events:()=>import('@/components/home/Events'),
+    // events:()=>import('@/components/home/Events'),
     featureEvents:()=>import('@/components/home/FeaturesEvents'),
-    partners:()=>import('@/components/common/Partners')
+    // partners:()=>import('@/components/common/Partners')
   },
   data:()=>({
     showFeatureEventStatus:false

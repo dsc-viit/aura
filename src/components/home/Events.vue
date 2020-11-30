@@ -82,20 +82,20 @@ import { mapState } from 'vuex'
         },
         methods:{
             getAllMeetupPastEvents(){
-                this.showLoader = true
-                service.getAllMeetupPastEvents(this.config.keysandsecurity.meetup).then(res=>{
-                    if(res.success){
-                        this.eventsData = res.data
-                        this.showLoader = false;
-                    }else{
-                        this.notFoundEventFlag = true;
-                        this.showLoader = false;
-                    }
+                // this.showLoader = true
+                // service.getAllMeetupPastEvents(this.config.keysandsecurity.meetup).then(res=>{
+                //     if(res.success){
+                //         this.eventsData = res.data
+                //         this.showLoader = false;
+                //     }else{
+                //         this.notFoundEventFlag = true;
+                //         this.showLoader = false;
+                //     }
                     
-                }).catch(e=>{
-                    this.errorMsg = "Issue found with " + e;
-                    this.showLoader = false;
-                })
+                // }).catch(e=>{
+                //     this.errorMsg = "Issue found with " + e;
+                //     this.showLoader = false;
+                // })
             }
         }
 };
